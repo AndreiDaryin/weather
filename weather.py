@@ -2,7 +2,6 @@ import logging
 import os
 import requests
 
-my_api_key = '49f7e955640dc6bd40306613fb18e0d0'
 
 class WeatherToday():
     def __init__(self, *args):
@@ -36,7 +35,7 @@ class WeatherToday():
     def weather_today(self, api_key):
         data, choice = self.city_request(api_key)
         try:
-            if choice > 0 and choice < len(data):
+            if choice > 0 and choice <= len(data):
                 weather = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={data[choice - 1]['name']},{data[choice -1]['country']}&appid={api_key}&units=metric").json()
                 os.system('cls||clear')
                 print(f"Temperature in {data[choice - 1]['name'], data[choice -1]['country']} is {weather['main']['temp']} \u2103")
@@ -46,6 +45,7 @@ class WeatherToday():
             logging.warning("Cant find city/region/airport with such name, please try again")
         
 if __name__ == '__main__':
+    my_api_key = input('Enter your API key from OpenWeather')
     weather = WeatherToday(my_api_key)      
     weather.weather_today(my_api_key)
 
