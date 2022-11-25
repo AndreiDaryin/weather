@@ -4,4 +4,4 @@ This project helps to find weather in the city/region you like
 Python
 <h3> Author </h3>
 Andrei Daryin
-<h4> To use this script you should register at Openweathermap.org and get an API_rey </h4>
+<h4> To use this script you should register at Openweathermap.org and get an API_key </h4>
